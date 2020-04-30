@@ -1,0 +1,31 @@
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+}
+
+h1, h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: var(--primary__cyan);
+}
+
+h3 {
+  margin-bottom: 16px;
+}
+
+p {
+  color: var(--primary__greyish-blue);
+  line-height: 1.7;
+}
+
+.light-weight__400 {
+  font-weight: 400;
+}
+
+.heavy-weight__700 {
+  font-weight: 700;
+}
+

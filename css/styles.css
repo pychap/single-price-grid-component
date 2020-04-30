@@ -1,0 +1,408 @@
+/*******************
+ Box Sizing
+ *******************/
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+/*******************
+ Core body defaults
+ @see https://hankchizljaw.com/wrote/a-modern-css-reset/
+ *******************/
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/****************************
+ Generic Margins and Paddings
+ ****************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+figcaption,
+hr,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/*******************
+ Lists
+ *******************/
+ul {
+  list-style: none;
+}
+
+/*******************
+ Forms and buttons
+ *******************/
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* I usually expand input and textarea to full-width */
+input[type="text"],
+textarea {
+  width: 100%;
+}
+
+/* More friendly border */
+input,
+textarea,
+button {
+  border: 1px solid gray;
+}
+
+/* Some defaults for one-liner buttons */
+button {
+  padding: 0.75em 1em;
+  line-height: inherit;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+button * {
+  pointer-events: none;
+}
+
+/***********************************
+ Easy responsive for media elements
+ ***********************************/
+img,
+iframe,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  max-width: 100%;
+}
+
+/*******************
+ Useful table styles
+ *******************/
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/*******************
+ The hidden attribute
+ *******************/
+[hidden] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*******************
+ Noscript
+ *******************/
+noscript {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+/*******************
+ Tabindex
+ *******************/
+[tabindex="-1"] {
+  outline: none !important;
+}
+
+/*******************
+ Remove animations and transitions
+ @see https://hankchizljaw.com/wrote/a-modern-css-reset/
+ *******************/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*******************
+ * Screen-ready only class to hide content visually
+ * Solution by Joe Watkins.
+ * @see https://zellwk.com/blog/hide-content-accessibly/
+ *******************/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+}
+
+h1, h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: var(--primary__cyan);
+}
+
+h3 {
+  margin-bottom: 16px;
+}
+
+p {
+  color: var(--primary__greyish-blue);
+  line-height: 1.7;
+}
+
+.light-weight__400 {
+  font-weight: 400;
+}
+
+.heavy-weight__700 {
+  font-weight: 700;
+}
+
+/* ======== colors =========== */
+:root {
+  --primary__cyan: hsl(179, 62%, 43%);
+  --primary__cyan-light: hsla(179, 62%, 43%, .8);
+  --light-gray: hsl(204, 43%, 93%);
+  --primary__yellow: hsl(71, 73%, 54%);
+  --primary__greyish-blue: hsl(218, 22%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
+  --rounded-corners: 12px;
+  --font-light: 300;
+  --font-heavy: 700;
+}
+
+/* ======== body =========== */
+body {
+  background-color: var(--light-gray);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 636px 1fr;
+      grid-template-columns: 1fr 636px 1fr;
+  -ms-grid-rows: 1fr 476px 30vmin 75px;
+      grid-template-rows: 1fr 476px 30vmin 75px;
+  min-height: 100vh;
+}
+
+main {
+  background-color: var(--white);
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  border-radius: var(--rounded-corners);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: minmax(216px, auto) 260px;
+      grid-template-rows: minmax(216px, auto) 260px;
+}
+
+section {
+  padding: 40px;
+}
+
+section:not(:first-child) p {
+  font-size: .9rem;
+  max-width: 26ch;
+}
+
+section:first-child {
+  grid-column: span 2;
+}
+
+section:first-child h3 {
+  color: var(--primary__yellow);
+}
+
+section:nth-child(2n) {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  background-color: var(--primary__cyan);
+  border-bottom-left-radius: var(--rounded-corners);
+}
+
+section:nth-child(2n) h3,
+section:nth-child(2n) p,
+section:nth-child(2n) button {
+  color: var(--white);
+}
+
+section:nth-child(2n) h3 {
+  margin-bottom: 0;
+}
+
+section:nth-child(2n) p:first-of-type {
+  font-size: .8rem;
+  font-weight: var(--font-light);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+section:nth-child(3n) {
+  background-color: var(--primary__cyan-light);
+  color: var(--white);
+  border-bottom-right-radius: var(--rounded-corners);
+}
+
+section:nth-child(3n) p {
+  max-width: 24ch;
+  font-size: .8rem;
+  font-weight: var(--font-light);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.price > span {
+  display: block;
+  float: left;
+  margin: -0.8rem .5rem -0.2rem 0;
+  font-size: 31px;
+  color: var(--white);
+  font-weight: var(--font-heavy);
+}
+
+p.price ~ p {
+  clear: left;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary__yellow);
+  border-radius: var(--rounded-corners);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+}
+
+button:hover {
+  background-color: #abca20;
+}
+
+footer {
+  grid-column: 1 / -1;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4 / 5;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    -ms-grid-columns: 1fr 93vw 1fr;
+        grid-template-columns: 1fr 93vw 1fr;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  body {
+    -ms-grid-columns: 1fr 88vw 1fr;
+        grid-template-columns: 1fr 88vw 1fr;
+    -ms-grid-rows: 70px auto 1fr 70px;
+        grid-template-rows: 70px auto 1fr 70px;
+    overflow-x: hidden;
+  }
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 40px 268px (228px)[2] (1fr)[2];
+        grid-template-rows: 40px 268px repeat(2, 228px) repeat(2, 1fr);
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  section {
+    grid-column: 1 / -1;
+  }
+  section:first-child {
+    grid-column: 1 / -1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  section:nth-child(2n) {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / 4;
+    border-bottom-left-radius: unset;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  section:nth-child(2n) h3 {
+    margin-bottom: 30px;
+  }
+  section:nth-child(2n) .price ~ p {
+    margin-bottom: 30px;
+  }
+  section:nth-child(3n) {
+    border-bottom-left-radius: var(--rounded-corners);
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  footer {
+    grid-row: 6 / -1;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
